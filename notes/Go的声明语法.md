@@ -62,3 +62,30 @@ f func(func(int,int) int, int) int
 ```go
 f func(func(int,int) int, int) func(int, int) int
 ```
+
+### 指针
+对于数组Go把括号放在类型的左边:
+```go
+var a []int
+x = a[1]
+```
+并且Go中的指针沿用了C中的符号`*`:
+```go
+var p *int
+x = *p
+```
+但不能把`*`放在后面，因为会和乘法混淆：
+```go
+var p *int
+x = p*  // 错误用法
+```
+总之，Go在指针方面与C语言形似，这也就无法避免使用括号来消除歧义，比如类型转换：
+```go
+（*int)(nil)
+```
+
+---
+
+**参考资料**
+
+[Go's Declaration Syntax](https://blog.go-zh.org/gos-declaration-syntax)
